@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Trazado de líneas ecuación basica</title>
+        <title>Trazado de líneas ecuación basica V1</title>
     </head>
     <body style="background-color: aqua;">
          <!--Lienzo para pintar las líneas -->
        <div align="center">
         <h1>Trazado de lineas basados en la ecuacion Basica</h1>
         <h3>Alumno: Lopez Mercado Saulo Ramon 402-Software</h3><br>
-
+        <p>Instruciones de uso:
+            1)-cliclea un punto en el lienzo  (primer punto)
+            2)-cliclea un segundo punto en el lienzo 
+            3)- se formara la linea en base al algoritmo basico
+        </p><br>
         <canvas style="border: 3px solid; background-color: white;" id="lienzo" width="300" height="300" onmousedown="dibujar(event)"></canvas> 
         <!--Función dibujar se ejecuta cada que se hace clic sobre el lienzo -->
         <br><br>
@@ -58,28 +62,45 @@
             }else 
                 //Si es el segundo clic, pintamos la línea con los valores xi, yi
                 //y la posición del último clic del ratón (event.offsetX, event.offsetY)
-                //comparar  el valor del ultimo click para ver si es mayor o menor en el eje de las x
-                
+                //comparar  el valor del ultimo click para ver si es mayor o menor en el eje de las x                
                 //poner coordenada del punto
-                //contexto.fillText( "(" + event.offsetX + "," + event.offsetY + ")", event.offsetX+4, event.offsetY);
-
-                CalculosDePuntos(xi, yi, event.offsetX, event.offsetY, contexto, "blue");
-                primerPunto =! primerPunto;//Invertir el valor de la bandera para pintar más líneas
+                //contexto.fillText( "(" + event.offsetX + "," + event.offsetY + ")", event.offsetX+4, event.offsetY);                                
+                    PintarPixel(contexto, event.offsetX, event.offsetY, "blue");                                                     
+                    CalculosDePuntos(xi, yi, event.offsetX, event.offsetY, contexto, "blue");
+                    primerPunto =! primerPunto;//Invertir el valor de la bandera para pintar más líneas                
+                
             }
         
         function CalculosDePuntos(x0, y0, x1, y1, contexto, color){
 
             //delimitar dx y dy para ver atrabes de que se va a calcular si de x o de y
             var dx = Math.abs(x1-x0); //Math.abs() para obtener el valor absoluto
-            var dy = Math.abs(y1-y0);
-
+            var dy = Math.abs(y1-y0);                        
+            
             var m=(y1-y0)/(x1-x0); //calcular pendiente
             var b= y0 -(m*x0); //determinar el punto donde la recta se cruza con el eje y
-            
+
+            if(dx == 0 ){
+                   // revisar el si y0 es menor que y1
+                    if(y0<y1){                                            
+                        for(var y=y0; y<=y1; y++){ //Elpunto inicial debe estármás a la izq.q el final                                                     
+                            PintarPixel(contexto, x1, y, color); //pintar el sig.punto de la línea Math.round() redondeo de y 
+                        }
+                        //Para poner la coordenada del punto
+                        //contexto.fillText( "(" + x1 + "," + y1 + ")", x1+4, y1);
+                    }else{
+                        //se invierte el eje de y 
+                        for(var y=y1; y<=y0; y++){ //Elpunto inicial debe estármás a la izq.q el final                                                     
+                            PintarPixel(contexto, x1, y, color); //pintar el sig.punto de la línea Math.round() redondeo de y 
+                        }
+                        //Para poner la coordenada del punto
+                        //contexto.fillText( "(" + x1 + "," + y1 + ")", x1+4, y1);
+                    }                
+            }        
+
             //compracion dy y dx para saber en base a que calcular los puntos
             if (dy > dx) {
-                //dy es mayor asi que se calcula en base a y  
-                
+                //dy es mayor asi que se calcula en base a y                  
                 // revisar el si y0 es menor que y1
                 if(y0<y1){
                     for(var y=y0; y<=y1; y++){ //Elpunto inicial debe estármás a la izq.q el final                             
@@ -99,15 +120,28 @@
                 }                
 
             }else{
-                //dx es mayor asi que se calcula en base a x
-                for(var x=x0; x<=x1; x++){ //Elpunto inicial debe estármás a la izq.q el final
-                    var y= (m*x)+b; //Ecuación de la recta en base a x
-                    PintarPixel(contexto, x, Math.round(y), color); //pintar el sig.punto de la línea Math.round() redondeo de y 
-                }
-                //Para poner la coordenada del punto
-                //contexto.fillText( "(" + x1 + "," + y1 + ")", x1+4, y1);
-            }                        
-            
+
+                if(x1<x0){
+
+                    //dx es mayor asi que se calcula en base a x
+                    for(var x=x1; x<=x0; x++){ //Elpunto inicial debe estármás a la izq.q el final
+                        var y= (m*x)+b; //Ecuación de la recta en base a x
+                        PintarPixel(contexto, x, Math.round(y), color); //pintar el sig.punto de la línea Math.round() redondeo de y 
+                    }
+                    //Para poner la coordenada del punto
+                    //contexto.fillText( "(" + x1 + "," + y1 + ")", x1+4, y1);
+
+                }else{
+
+                    //dx es mayor asi que se calcula en base a x
+                    for(var x=x0; x<=x1; x++){ //Elpunto inicial debe estármás a la izq.q el final
+                        var y= (m*x)+b; //Ecuación de la recta en base a x
+                        PintarPixel(contexto, x, Math.round(y), color); //pintar el sig.punto de la línea Math.round() redondeo de y 
+                    }
+                    //Para poner la coordenada del punto
+                    //contexto.fillText( "(" + x1 + "," + y1 + ")", x1+4, y1);
+                }                
+            }                                                            
         }
 
     </script>
