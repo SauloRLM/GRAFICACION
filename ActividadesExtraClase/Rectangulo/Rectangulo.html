@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Trazado de Rctagulos</title>
+    </head>
+    <body style="background-color: rgb(98, 196, 199);">
+         <!--Lienzo para pintar las líneas -->
+       <div align="center">
+        <h1>Trazado de Rectangulos</h1>
+        <h3>Alumno: Lopez Mercado Saulo Ramon 402-Software</h3>
+        <p align="left" style="margin-left: 35%;">Instruciones de uso:<br>
+            1)-Selecciona una opcion y darle clic a selccionar<br>
+            2)-cliclea un punto en el lienzo manten precionado (punto inicial)<br>
+            3)-Arrastra el mouse por el lienzo <br>
+            4)-suelta el click (punto final) se formara la linea en base al algoritmo basico
+        </p>
+
+        <p align="left" style="margin-left: 35%;">
+            -Algoritmo a emplear:<br>            
+        </p><br>
+          <input type="radio" id="1" value="1" name="metodo">
+          <label for="">Basico</label> 
+         <input type="radio" id="2"  value="2" name="metodo" >
+          <label for="">DDA</label>
+          <input type="radio" id="3"  value="3" name="metodo" >
+          <label for="">Bresenham</label>        
+          <input type="radio" id="4"  value="4" name="metodo" checked >
+          <label for="">Rectangulo</label>        
+            
+        
+        
+        <input style="margin-left: 1%;" type="Button" value="Seleccionar Metodo" onclick="selccionarMetodo()"> 
+        <br><br>
+
+        <canvas style="border: 3px solid; background-color: white;" id="lienzo" width="600" height="600" ></canvas> 
+        <!--Función dibujar se ejecuta cada que se hace clic sobre el lienzo   onmousedown="dibujar(event)" location.reload()-->
+        <br><br>
+        <input type="button" value="LimpiarPizarra" onclick="actualizar()"/>
+
+       </div>
+       
+      <script src=Funci.js></script>
+      <script src=Rectangulo.js></script>      
+      
+
+
+   
+    </body>
+</html>
+
