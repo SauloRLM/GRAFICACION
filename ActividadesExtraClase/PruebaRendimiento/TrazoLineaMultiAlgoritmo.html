@@ -8,11 +8,13 @@
 <body style="background-color: rgb(98, 196, 199);">
     <!--Lienzo para pintar las líneas -->
     <div align="center">
-        <h1>Trazado de lineas basados en la ecuacion Basica Con Distintos Algoritmos </h1>
+        <h1>Trazado de lineas basados en la ecuacion Basica Con Distintos Algoritmos Pruebas </h1>
         <h3>Alumno: Lopez Mercado Saulo Ramon 402-Software</h3>
+        <!--  
         <p align="left" style="margin-left: 35%;">Instruciones de uso:<br> 1)-Selecciona una opcion y darle clic a selccionar<br> 2)-cliclea un punto en el lienzo manten precionado (punto inicial)<br> 3)-Arrastra el mouse por el lienzo <br> 4)-suelta el click (punto final) se formara la linea
             en base al algoritmo basico
         </p>
+        -->
         <p align="left" style="margin-left: 35%;">
             -Algoritmo a emplear:<br>
         </p>
@@ -26,11 +28,16 @@
 
         <input style="margin-left: 1%;" type="Button" value="Probar" onclick="IniciarPrueba()">
         <br><br>
+        <!--          
+        <input style="width: 5%;" type="text" id="4" >
+        <label for="">Tiempo-Basico</label>
+        <input style="width: 5%; margin-left: 1%;" type="text" id="5" >
+        <label for="">Tiempo-DDA</label>
+        <input style="width: 5%; margin-left: 1%;" type="text" id="6" ><label for="">Tiempo-Bresenham</label>
+        <br><br>
+                -->
 
-
-
-
-        <canvas style="border: 3px solid; background-color: white;" id="lienzo" width="1000" height="1000"></canvas>
+        <canvas style="border: 1px solid; background-color: white;" id="lienzo" width="1000" height="1000"></canvas>
         <!--Función dibujar se ejecuta cada que se hace clic sobre el lienzo   onmousedown="dibujar(event)" location.reload()-->
         <br><br>
         <input type="button" value="LimpiarPizarra" onclick="actualizar()" />

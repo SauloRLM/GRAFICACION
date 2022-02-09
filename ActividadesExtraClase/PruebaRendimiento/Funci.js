@@ -63,57 +63,83 @@ var yi = 0;
 
 function IniciarPrueba() {
 
-    /*
-    //para x verticales
-    
-    for (var x = 2; x < 1000; x += 6) { //Elpunto inicial debe estármás a la izq.q el final                                                     
-        CalculosDePuntosBasico(x, 0, x, 1000, contexto, col);
-    }
-
-    for (var x = 2; x < 1000; x += 3) { //Elpunto inicial debe estármás a la izq.q el final                                                     
-        CalculosDePuntosBasico(x, 1000, x, 0, contexto, col);
-    }
-    //para y acostada
-    
-    for (var y = 2; y < 1000; y += 6) { //Elpunto inicial debe estármás a la izq.q el final                                                     
-        CalculosDePuntosBasico(0, y, 1000, y, contexto, col);
-    }
-
-    for (var y = 2; y < 1000; y += 3) { //Elpunto inicial debe estármás a la izq.q el final                                                     
-        CalculosDePuntosBasico(1000, y, 0, y, contexto, col);
-    }
-    */
-
-    //diagonal 
-    for (var x = 2; x < 1000; x += 6) { //Elpunto inicial debe estármás a la izq.q el final                                                     
-        CalculosDePuntosBasico(x, 0, x, 1000, contexto, col);
-    }
-
-    //for (var x = 2; x < 1000; x += 3) { //Elpunto inicial debe estármás a la izq.q el final                                                     
-    //        CalculosDePuntosBasico(x, 1000, x, 0, contexto, col);
-    //  }
-
-
-
-
-
-
-    /*
         if (opc1 == true) {
             //window.alert("Usando Algoritmo Basico");   
-            CalculosDePuntosBasico(x, yi, event.offsetX, event.offsetY, contexto, col);
+            console.time('Ejemp-Basico');    
+            //normal
+            for (var j = 2; j < 1000; j += 6) { //Elpunto inicial debe estármás a la izq.q el final                                                     
+                CalculosDePuntosBasico(j, 0, j, 1000, contexto, col); //Vertical
+                CalculosDePuntosBasico(0, j, 1000, j, contexto, col); //Horizontal
+                CalculosDePuntosBasico(j, 0, 0, j, contexto, col);    //diagonal de izq sup a centro          
+                CalculosDePuntosBasico(0, 1000-j, j,1000, contexto, col);        //diagonal de izq inf  a cent  
+                CalculosDePuntosBasico(1000-j, 1000, 1000, 1000-j, contexto, col); //diagonal der inf a centro                
+                CalculosDePuntosBasico(1000-j, 0, 1000, j, contexto, col);      //diagonal der sup a centro 
+        
+            }
+            //invertido
+            for (var j = 2; j < 1000; j += 3) { //Elpunto inicial debe estármás a la izq.q el final                                                     
+                CalculosDePuntosBasico(j, 1000, j, 0, contexto, col); //vertical invertida
+                CalculosDePuntosBasico(1000, j, 0, j, contexto, col); //Horizontal
+                CalculosDePuntosBasico(j, 0, 0, j, contexto, col);        //diagonal de izq sup a centro                  
+                CalculosDePuntosBasico(j, 1000, 0,1000-j, contexto, col);          //diagonal de izq inf  a cent    
+                CalculosDePuntosBasico(1000-j, 1000, 1000, 1000-j, contexto, col);   //diagonal der inf a centro                     
+                CalculosDePuntosBasico(1000,j,1000-j,0, contexto, col);         //diagonal der sup a centro 
+            }
+            console.timeEnd('Ejemp-Basico');
+            
         }
 
         if (opc2 == true) {
-            //window.alert("Usando Algoritmo DDA");
-            CalculosDePuntosDDA(xi, yi, event.offsetX, event.offsetY, contexto, col);
+            //window.alert("Usando Algoritmo DDA");            
+            console.time('Ejemp-DDA');    
+            //normal
+            for (var j = 2; j < 1000; j += 6) { //Elpunto inicial debe estármás a la izq.q el final                                                     
+                CalculosDePuntosDDA(j, 0, j, 1000, contexto, col); //Vertical
+                CalculosDePuntosDDA(0, j, 1000, j, contexto, col); //Horizontal
+                CalculosDePuntosDDA(j, 0, 0, j, contexto, col);    //diagonal de izq sup a centro          
+                CalculosDePuntosDDA(0, 1000-j, j,1000, contexto, col);        //diagonal de izq inf  a cent  
+                CalculosDePuntosDDA(1000-j, 1000, 1000, 1000-j, contexto, col); //diagonal der inf a centro                
+                CalculosDePuntosDDA(1000-j, 0, 1000, j, contexto, col);      //diagonal der sup a centro 
+        
+            }
+            //invertido
+            for (var j = 2; j < 1000; j += 3) { //Elpunto inicial debe estármás a la izq.q el final                                                     
+                CalculosDePuntosDDA(j, 1000, j, 0, contexto, col); //vertical invertida
+                CalculosDePuntosDDA(1000, j, 0, j, contexto, col); //Horizontal
+                CalculosDePuntosDDA(j, 0, 0, j, contexto, col);        //diagonal de izq sup a centro                  
+                CalculosDePuntosDDA(j, 1000, 0,1000-j, contexto, col);          //diagonal de izq inf  a cent    
+                CalculosDePuntosDDA(1000-j, 1000, 1000, 1000-j, contexto, col);   //diagonal der inf a centro                     
+                CalculosDePuntosDDA(1000,j,1000-j,0, contexto, col);         //diagonal der sup a centro 
+            }
+            console.timeEnd('Ejemp-DDA');
+
         }
 
         if (opc3 == true) {
-            //window.alert("Usando Algoritmo Bresenham");
-            CalculosDePuntosBresenham(xi, yi, event.offsetX, event.offsetY, contexto, col);
-        }
-        */
+            //window.alert("Usando Algoritmo Bresenham");            
+            console.time('Ejemp-Bresenham');    
+            //normal
+            for (var j = 2; j < 1000; j += 6) { //Elpunto inicial debe estármás a la izq.q el final                                                     
+                CalculosDePuntosBresenham(j, 0, j, 1000, contexto, col); //Vertical
+                CalculosDePuntosBresenham(0, j, 1000, j, contexto, col); //Horizontal
+                CalculosDePuntosBresenham(j, 0, 0, j, contexto, col);    //diagonal de izq sup a centro          
+                CalculosDePuntosBresenham(0, 1000-j, j,1000, contexto, col);        //diagonal de izq inf  a cent  
+                CalculosDePuntosBresenham(1000-j, 1000, 1000, 1000-j, contexto, col); //diagonal der inf a centro                
+                CalculosDePuntosBresenham(1000-j, 0, 1000, j, contexto, col);      //diagonal der sup a centro 
+        
+            }
+            //invertido
+            for (var j = 2; j < 1000; j += 3) { //Elpunto inicial debe estármás a la izq.q el final                                                     
+                CalculosDePuntosBresenham(j, 1000, j, 0, contexto, col); //vertical invertida
+                CalculosDePuntosBresenham(1000, j, 0, j, contexto, col); //Horizontal
+                CalculosDePuntosBresenham(j, 0, 0, j, contexto, col);        //diagonal de izq sup a centro                  
+                CalculosDePuntosBresenham(j, 1000, 0,1000-j, contexto, col);          //diagonal de izq inf  a cent    
+                CalculosDePuntosBresenham(1000-j, 1000, 1000, 1000-j, contexto, col);   //diagonal der inf a centro                     
+                CalculosDePuntosBresenham(1000,j,1000-j,0, contexto, col);         //diagonal der sup a centro 
+            }
+            console.timeEnd('Ejemp-Bresenham');
+
+        }        
 
 }
 
@@ -164,5 +190,5 @@ function unclick(event) {
 
 
 var canvas = document.getElementById("lienzo");
-canvas.addEventListener("mousedown", click);
-canvas.addEventListener("mouseup", unclick);
+//canvas.addEventListener("mousedown", click);
+//canvas.addEventListener("mouseup", unclick);
