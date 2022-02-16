@@ -1,27 +1,24 @@
-function CalculoPoligono(x0, y0, x1, y1, contexto, color, opc, numl) {
+function CalculoElipse(x0, y0, x1, y1, contexto, color, opc, numl) {
 
 
     //dx tamaño de la figura radio 
     var dx = Math.abs(x1 - x0);
     var dy = Math.abs(y1 - y0);
 
-
-    /*
-    var X = canvas.width / 2;
-    var Y = canvas.height / 2;
-    */
-
     var X = x0;
     var Y = y0;
 
     //contexto.fillText("(" + X + "," + Y + ")", X + 4, Y);
 
+    //RX
     //var R = 100;
-    if (dx < dy) {
-        var R = dy;
-    } else {
-        var R = dx;
-    }
+    //if (dx < dy) {
+    var RY = dy;
+    //} else {
+    var RX = dx;
+    //}
+
+    //RY
 
     // el número de lados del polígono
     var L = numl;
@@ -45,21 +42,11 @@ function CalculoPoligono(x0, y0, x1, y1, contexto, color, opc, numl) {
     for (var i = 0; i <= L; i++) {
 
         if (i == 0) {
-            X0 = X + R * Math.cos(rad * i);
-            Y0 = Y + R * Math.sin(rad * i);
+            X0 = X + RX * Math.cos(rad * i);
+            Y0 = Y + RY * Math.sin(rad * i);
         } else {
-            var x = X + R * Math.cos(rad * i);
-            var y = Y + R * Math.sin(rad * i);
-
-            console.log();
-
-            if (opc == 1) {
-                CalculosDePuntosBasico(X0, Y0, x, y, contexto, color);
-            }
-            if (opc == 2) {
-                CalculosDePuntosDDA(X0, Y0, x, y, contexto, color);
-            }
-
+            var x = X + RX * Math.cos(rad * i);
+            var y = Y + RY * Math.sin(rad * i);
             /*
             console.log("Inicio:");
             console.log("X0 =" + X0);
@@ -70,6 +57,12 @@ function CalculoPoligono(x0, y0, x1, y1, contexto, color, opc, numl) {
             console.log("--------------------");
             */
 
+            if (opc == 1) {
+                CalculosDePuntosBasico(X0, Y0, x, y, contexto, color);
+            }
+            if (opc == 2) {
+                CalculosDePuntosDDA(X0, Y0, x, y, contexto, color);
+            }
             if (opc == 3) {
                 CalculosDePuntosBresenham(Math.round(X0), Math.round(Y0), Math.round(x), Math.round(y), contexto, color);
             }

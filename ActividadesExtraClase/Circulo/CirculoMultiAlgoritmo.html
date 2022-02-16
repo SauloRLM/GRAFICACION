@@ -25,85 +25,37 @@
         <input type="radio" id="3" value="3" name="metodo">
         <label for="">Bresenham</label>
         <input style="margin-left: 1%;" type="Button" value="Seleccionar Metodo" onclick="selccionarMetodo()">
-        <br><br>
-        <!--          
-        <input style="width: 5%;" type="text" id="4" >
-        <label for="">Tiempo-Basico</label>
-        <input style="width: 5%; margin-left: 1%;" type="text" id="5" >
-        <label for="">Tiempo-DDA</label>
-        <input style="width: 5%; margin-left: 1%;" type="text" id="6" ><label for="">Tiempo-Bresenham</label>
-        <br><br>
-                -->
+        <br>
 
-        <canvas style="border: 1px solid; background-color: white;" id="lienzo" width="600" height="600"></canvas>
+        <input type="radio" id="4" value="4" name="Figura" checked>
+        <label for="">Circulo</label>
+        <input type="radio" id="7" value="4" name="Figura">
+        <label for="">Elipse</label>
+        <input type="radio" id="8" value="4" name="Figura">
+        <label for="">Rectangulo</label>
+        <input type="radio" id="9" value="4" name="Figura">
+        <label for="">Cuadrado</label>
+        <input type="radio" id="5" value="5" name="Figura">
+        <label for="">Poligono</label>
+        <input type="number" id="6" min="3" max="360" value="6" name="Figura">
+        <label for="">Num Lados:</label>
+        <input style="margin-left: 1%;" type="Button" value="Probar" onclick="IniciarPrueba()">
+        <label for="">Prueba de rendimiento:</label>
+        <br><br>
+
+
+        <canvas style="border: 1px solid; background-color: white;" id="lienzo" width="1000" height="1000"></canvas>
         <!--Función dibujar se ejecuta cada que se hace clic sobre el lienzo   onmousedown="dibujar(event)" location.reload()-->
         <br><br>
         <input type="button" value="LimpiarPizarra" onclick="actualizar()" />
 
     </div>
 
-    <!--
-    <script src=Basico.js></script>
-    <script type="text/javascript">
-        //src="javascript.js"
-        var canvas = document.getElementById("lienzo");
-
-        function PintarPixel(contexto, x, y, color) { //Pintar un punto
-            contexto.fillStyle = color;
-            // Grosor de línea los ultimos dos digitos            
-            contexto.fillRect(x, y, 2, 2);
-        }
-
-        if (canvas && canvas.getContext) {
-            var contexto = canvas.getContext("2d");
-            if (contexto) {
-                //contexto.fillStyle = "#6ab150";
-                //contexto.strokeStyle = "black";
-                var col = "blue";
-                //contexto.lineWidth = 1;
-
-                var X = canvas.width / 2;
-                var Y = canvas.height / 2;
-
-                contexto.fillText("(" + X + "," + Y + ")", X + 4, Y);
-
-                var R = 100;
-                // el número de lados del polígono
-                var L = 8;
-                // si L == 5 el ángulo es de 2π/6 o sea 60°
-                var rad = (2 * Math.PI) / L;
-                // dibuja el trazado 
-                //contexto.beginPath();
-
-                //var primeros datos
-                var X0 = 0;
-                var Y0 = 0;
-
-                for (var i = 0; i <= L; i++) {
-
-                    if (i == 0) {
-                        X0 = X + R * Math.cos(rad * i);
-                        console.log("X0 es: " + X0);
-                        console.log("Y0 es: " + Y0);
-                        Y0 = Y + R * Math.sin(rad * i);
-                    } else {
-                        x = X + R * Math.cos(rad * i);
-                        y = Y + R * Math.sin(rad * i);
-                        CalculosDePuntosBasico(X0, Y0, x, y, contexto, col);
-                        X0 = x;
-                        Y0 = y;
-                    }
-                    //contexto.lineTo(x, y);
-                }
-                //contexto.closePath();
-                //contexto.fill();
-                //contexto.stroke();
-            }
-        }
-    </script>
--->
-    <script src=Funci.js></script>
+    <script src=Main.js></script>
     <script src=Circulo.js></script>
+    <script src=Elipse.js></script>
+    <script src=Rectangulo.js></script>
+    <script src=cuadrado.js></script>
     <script src=Basico.js></script>
     <script src=DDA.js></script>
     <script src=Bresenham.js></script>
